@@ -85,6 +85,51 @@
           "children": [
             { "label": "Solid Virtual", "to": "framework/solid/solid-virtual" }
           ]
+        },
+        {
+          "label": "Examples",
+          "children": [
+            {
+              "to": "framework/solid/examples/fixed",
+              "label": "Fixed"
+            },
+            {
+              "to": "framework/solid/examples/variable",
+              "label": "Variable"
+            },
+            {
+              "to": "framework/solid/examples/dynamic",
+              "label": "Dynamic"
+            },
+            {
+              "to": "framework/solid/examples/sticky",
+              "label": "Sticky"
+            },
+            {
+              "to": "framework/solid/examples/infinite-scroll",
+              "label": "Infinite Scroll"
+            },
+            {
+              "to": "framework/solid/examples/smooth-scroll",
+              "label": "Smooth Scroll"
+            },
+            {
+              "to": "framework/solid/examples/table",
+              "label": "Table"
+            },
+            {
+              "to": "framework/solid/examples/padding",
+              "label": "Padding"
+            },
+            {
+              "to": "framework/solid/examples/scroll-padding",
+              "label": "Scroll Padding"
+            },
+            {
+              "to": "framework/solid/examples/window",
+              "label": "Window"
+            }
+          ]
         }
       ]
     },

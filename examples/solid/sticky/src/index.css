@@ -1,0 +1,13 @@
+html {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+body {
+  padding: 1rem;
+}
+
+.List {
+  border: 1px solid #e6e4dc;
+  max-width: 100%;
+}
