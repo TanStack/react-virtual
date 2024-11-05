@@ -73,8 +73,14 @@ export const observeElementRect = <T extends Element>(
   }
 
   const handler = (rect: Rect) => {
-    const { width, height } = rect
-    cb({ width: Math.round(width), height: Math.round(height) })
+    let { width, height } = rect
+
+    if (instance.options.roundElementDimensions) {
+      width = Math.round(width)
+      height = Math.round(height)
+    }
+
+    cb({ width, height })
   }
 
   handler(element.getBoundingClientRect())
@@ -225,17 +231,26 @@ export const measureElement = <TItemElement extends Element>(
   if (entry?.borderBoxSize) {
     const box = entry.borderBoxSize[0]
     if (box) {
-      const size = Math.round(
-        box[instance.options.horizontal ? 'inlineSize' : 'blockSize'],
-      )
+      let size = box[instance.options.horizontal ? 'inlineSize' : 'blockSize']
+
+      if (instance.options.roundElementDimensions) {
+        size = Math.round(size)
+      }
+
       return size
     }
   }
-  return Math.round(
+
+  let size =
     element.getBoundingClientRect()[
       instance.options.horizontal ? 'width' : 'height'
-    ],
-  )
+    ]
+
+  if (instance.options.roundElementDimensions) {
+    size = Math.round(size)
+  }
+
+  return size
 }
 
 export const windowScroll = <T extends Window>(
@@ -323,6 +338,7 @@ export interface VirtualizerOptions<
   isScrollingResetDelay?: number
   enabled?: boolean
   isRtl?: boolean
+  roundElementDimensions?: boolean
 }
 
 export class Virtualizer<
@@ -412,6 +428,7 @@ export class Virtualizer<
       isScrollingResetDelay: 150,
       enabled: true,
       isRtl: false,
+      roundElementDimensions: true,
       ...opts,
     }
   }
