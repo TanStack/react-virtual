@@ -9,7 +9,7 @@ import {
 } from '@tanstack/virtual-core'
 
 import {
-  createComputed,
+  createEffect,
   createSignal,
   mergeProps,
   onCleanup,
@@ -55,22 +55,19 @@ function createVirtualizerBase<
   }
 
   const virtualizer = new Proxy(instance, handler)
-  virtualizer.setOptions(resolvedOptions)
 
   onMount(() => {
     const cleanup = virtualizer._didMount()
-    virtualizer._willUpdate()
     onCleanup(cleanup)
   })
 
-  createComputed(() => {
+  createEffect(() => {
     virtualizer.setOptions(
       mergeProps(resolvedOptions, options, {
         onChange: (
           instance: Virtualizer<TScrollElement, TItemElement>,
           sync: boolean,
         ) => {
-          instance._willUpdate()
           setVirtualItems(
             reconcile(instance.getVirtualItems(), {
               key: 'index',
@@ -81,6 +78,8 @@ function createVirtualizerBase<
         },
       }),
     )
+    setVirtualItems([])
+    virtualizer._willUpdate()
     virtualizer.measure()
   })
 
