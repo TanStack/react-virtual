@@ -9,25 +9,25 @@ Install your TanStack Virtual adapter as a dependency using your favorite npm pa
 ## React Virtual
 
 ```bash
-$ npm install @tanstack/react-virtual
+npm install @tanstack/react-virtual
 ```
 
 ## Solid Virtual
 
 ```bash
-$ npm install @tanstack/solid-virtual
+npm install @tanstack/solid-virtual
 ```
 
 ## Svelte Virtual
 
 ```bash
-$ npm install @tanstack/svelte-virtual
+npm install @tanstack/svelte-virtual
 ```
 
 ## Vue Virtual
 
 ```bash
-$ npm install @tanstack/vue-virtual
+npm install @tanstack/vue-virtual
 ```
 
 ## Lit Virtual
@@ -45,5 +45,5 @@ $ npm install @tanstack/angular-virtual
 ## Virtual Core (no framework)
 
 ```bash
-$ npm install @tanstack/virtual-core
+npm install @tanstack/virtual-core
 ```
