@@ -410,9 +410,6 @@ function App() {
             <a href="/">List</a>
           </li>
           <li>
-            <a href="/window-list">List - window as scroller</a>
-          </li>
-          <li>
             <a href="/columns">Column</a>
           </li>
           <li>
