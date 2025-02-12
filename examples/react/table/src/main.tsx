@@ -164,7 +164,7 @@ function App() {
       <p>
         For tables, the basis for the offset of the translate css function is
         from the row's initial position itself. Because of this, we need to
-        calculate the translateY pixel count different and base it off the the
+        calculate the translateY pixel count differently and base it off the
         index.
       </p>
       <ReactTableVirtualized />
@@ -174,7 +174,7 @@ function App() {
         <p>
           <strong>Notice:</strong> You are currently running React in
           development mode. Rendering performance will be slightly degraded
-          until this application is build for production.
+          until this application is built for production.
         </p>
       ) : null}
     </div>

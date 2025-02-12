@@ -3,7 +3,7 @@
     <p>
       For tables, the basis for the offset of the translate css function is from
       the row's initial position itself. Because of this, we need to calculate
-      the translateY pixel count different and base it off the the index.
+      the translateY pixel count differently and base it off the index.
     </p>
 
     <div ref="parentRef" class="container">

@@ -146,7 +146,7 @@ function App() {
         <p>
           <strong>Notice:</strong> You are currently running React in
           development mode. Rendering performance will be slightly degraded
-          until this application is build for production.
+          until this application is built for production.
         </p>
       ) : null}
     </div>

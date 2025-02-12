@@ -100,7 +100,7 @@
   <p>
     For tables, the basis for the offset of the translate css function is from
     the row's initial position itself. Because of this, we need to calculate the
-    translateY pixel count different and base it off the the index.
+    translateY pixel count differently and base it off the index.
   </p>
 
   <div class="list scroll-container" bind:this={virtualListEl}>
