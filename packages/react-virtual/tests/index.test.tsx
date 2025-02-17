@@ -1,6 +1,6 @@
 import { beforeEach, test, expect, vi } from 'vitest'
 import * as React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, renderHook } from '@testing-library/react'
 
 import { useVirtualizer, Range } from '../src/index'
 
@@ -189,4 +189,29 @@ test('should handle handle height change', () => {
   expect(screen.queryByText('Row 0')).not.toBeInTheDocument()
   rerender(<List count={1} height={200} />)
   expect(screen.queryByText('Row 0')).toBeInTheDocument()
+})
+
+test('should refresh the virtualizer instance when the items are changing (React Compiler)', () => {
+  const scrollElement = document.createElement('div')
+  const { rerender, result } = renderHook(
+    (props) =>
+      useVirtualizer({
+        count: props.count,
+        getScrollElement: () => scrollElement,
+        estimateSize: () => 50,
+        observeElementRect: (_, cb) => {
+          cb({ height: 100, width: 100 })
+        },
+        measureElement: () => 50,
+      }),
+    {
+      initialProps: { count: 0 },
+    },
+  )
+
+  const initialVirtualizer = result.current;
+
+  rerender({ count: 10 });
+
+  expect(result.current).not.toBe(initialVirtualizer)
 })

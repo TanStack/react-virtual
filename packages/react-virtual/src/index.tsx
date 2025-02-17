@@ -50,7 +50,7 @@ function useVirtualizerBase<
     return instance._willUpdate()
   })
 
-  return instance
+  return React.useMemo(() => Object.create(instance), [instance.getVirtualItems()])
 }
 
 export function useVirtualizer<
