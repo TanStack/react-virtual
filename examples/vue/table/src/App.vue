@@ -47,9 +47,11 @@
           </thead>
           <tbody>
             <tr
-              v-for="virtualRow in virtualRows"
+              v-for="(virtualRow, index) in virtualRows"
               :key="virtualRow.key"
-              :style="{ transform: `translateY(${virtualRow.start}px)` }"
+              :style="{
+                transform: `translateY(${virtualRow.start - index * virtualRow.size}px)`,
+              }"
             >
               <td
                 v-for="cell in rows[virtualRow.index].getVisibleCells()"
